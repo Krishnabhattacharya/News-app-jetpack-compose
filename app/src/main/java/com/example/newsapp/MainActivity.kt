@@ -18,6 +18,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.newsapp.Navigation.AppRoute
 import com.example.newsapp.ui.screens.details.NewsDetailsScreen
 import com.example.newsapp.ui.screens.home.HomeScreen
 import com.example.newsapp.ui.theme.NewsAppTheme
@@ -26,7 +27,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            NewsDetailsScreen()
+            AppRoute().RouteController()
     }
 }
 

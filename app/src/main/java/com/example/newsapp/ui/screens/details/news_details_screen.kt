@@ -1,6 +1,7 @@
 package com.example.newsapp.ui.screens.details
 
 import android.annotation.SuppressLint
+import android.util.Log
 import android.view.RoundedCorner
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -28,6 +29,8 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.contentColorFor
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -39,12 +42,16 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
 import com.example.newsapp.ui.screens.home.HomeScreen
+import com.example.newsapp.viewmodel.newsviewmodel
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun NewsDetailsScreen() {
+fun NewsDetailsScreen(navController: NavController,   viewModel: newsviewmodel = androidx.lifecycle.viewmodel.compose.viewModel(),id:String) {
+    val newsRes by viewModel.newsList.collectAsState()
+Log.d("Id is ",id)
     Scaffold(
         containerColor = Color.LightGray
     ) {
@@ -84,7 +91,7 @@ fun NewsDetailsScreen() {
                         }
                     }
                     Image(
-                        painter = rememberAsyncImagePainter(model = "https://images.unsplash.com/photo-1719937206498-b31844530a96?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxfHx8ZW58MHx8fHx8"),
+                        painter = rememberAsyncImagePainter(model = newsRes!!.results.get(id.toInt()).image_url),
                         contentDescription = "",
                         contentScale = ContentScale.Crop,
                         modifier = Modifier.fillMaxSize()
@@ -158,8 +165,8 @@ fun NewsDetailsScreen() {
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun LoadingPreview() {
-    NewsDetailsScreen()
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun LoadingPreview() {
+//    NewsDetailsScreen(navController = NavController())
+//}
