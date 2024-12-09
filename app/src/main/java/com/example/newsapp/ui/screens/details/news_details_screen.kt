@@ -49,9 +49,9 @@ import com.example.newsapp.viewmodel.newsviewmodel
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun NewsDetailsScreen(navController: NavController,   viewModel: newsviewmodel = androidx.lifecycle.viewmodel.compose.viewModel(),id:String) {
+fun NewsDetailsScreen(navController: NavController,   viewModel: newsviewmodel,id:String) {
     val newsRes by viewModel.newsList.collectAsState()
-Log.d("Id is ",id)
+    Log.d("Id is ",id)
     Scaffold(
         containerColor = Color.LightGray
     ) {

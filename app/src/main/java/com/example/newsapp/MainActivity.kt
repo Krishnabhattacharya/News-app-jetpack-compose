@@ -22,7 +22,9 @@ import com.example.newsapp.Navigation.AppRoute
 import com.example.newsapp.ui.screens.details.NewsDetailsScreen
 import com.example.newsapp.ui.screens.home.HomeScreen
 import com.example.newsapp.ui.theme.NewsAppTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -36,7 +36,7 @@ class newsviewmodel:ViewModel(){
                     errorMessage.value = "Error: ${res.errorBody()?.string() ?: "Unknown error"}"
                     Log.d("Error", res.errorBody()?.string() ?: "Unknown error")
                 }}
-                catch (e: Exception) {
+            catch (e: Exception) {
                 errorMessage.value = "Exception: ${e.localizedMessage ?: "Unknown error"}"
                 Log.e("NewsViewModel", "Exception: ${e.localizedMessage}")
             } finally {

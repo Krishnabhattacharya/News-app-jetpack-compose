@@ -62,7 +62,7 @@ import com.example.newsapp.viewmodel.newsviewmodel
 @Composable
 fun HomeScreen(
     navController: NavController,
-    viewModel: newsviewmodel = androidx.lifecycle.viewmodel.compose.viewModel()
+    viewModel: newsviewmodel
 ) {
     LaunchedEffect(Unit) {
         viewModel.fetchData("pub_61089a3f8256a3bec3ede7199e464f0aa4bbd", "all")
